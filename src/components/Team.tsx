@@ -3,19 +3,24 @@ import { User } from "lucide-react";
 
 const teamMembers = [
   {
-    name: "Dr. Sarah Chen",
-    role: "Chief Medical Officer",
-    description: "15+ years in healthcare AI research",
+    name: "Nitanshu Bhor",
+    role: "Team Member",
+    description: "Dedicated to healthcare innovation",
   },
   {
-    name: "Alex Rodriguez",
-    role: "Lead AI Engineer",
-    description: "Expert in medical machine learning",
+    name: "Vaishnavi Biradar",
+    role: "Team Member",
+    description: "Passionate about AI solutions",
   },
   {
-    name: "Maya Patel",
-    role: "Product Director",
-    description: "Healthcare innovation specialist",
+    name: "Ishwari Gaikwad",
+    role: "Team Member",
+    description: "Focused on medical technology",
+  },
+  {
+    name: "Janhvi Veer",
+    role: "Team Member",
+    description: "Committed to improving patient care",
   },
 ];
 
@@ -23,7 +28,7 @@ const Team = () => {
   return (
     <section id="team" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -36,7 +41,7 @@ const Team = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}

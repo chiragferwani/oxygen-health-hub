@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
-import oxygenLogo from "@/assets/oxygen-logo.png";
+import oxygenLogoBlack from "@/assets/logo-black.png";
+import oxygenLogoWhite from "@/assets/logo-white.png";
 import ThemeToggle from "./ThemeToggle";
 import { Menu, X } from "lucide-react";
+import { useTheme } from "@/components/ThemeProvider";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,16 +37,19 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
           ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <img src={oxygenLogo} alt="Oxygen Logo" className="h-10 w-auto" />
+            <img
+              src={theme === "dark" ? oxygenLogoWhite : oxygenLogoBlack}
+              alt="Oxygen Logo"
+              className="h-10 w-auto"
+            />
             <span className="text-xl font-heading font-bold">Project Oxygen</span>
           </div>
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -22,16 +23,29 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-20 px-6 bg-muted/30">
+    <section id="contact" className="py-20 px-6 bg-muted/30">
       <div className="max-w-2xl mx-auto">
-        <div className="text-center space-y-4 mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Get in Touch</h2>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center space-y-4 mb-12"
+        >
+          <h2 className="text-4xl md:text-5xl font-heading font-bold tracking-tight">Get in Touch</h2>
           <p className="text-xl text-muted-foreground">
             Have questions? We'd love to hear from you.
           </p>
-        </div>
+        </motion.div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <motion.form 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          onSubmit={handleSubmit} 
+          className="space-y-6"
+        >
           <div>
             <Input
               placeholder="Your Name"
@@ -63,7 +77,7 @@ const Contact = () => {
           <Button type="submit" className="w-full h-12 text-base">
             Send Message
           </Button>
-        </form>
+        </motion.form>
       </div>
     </section>
   );

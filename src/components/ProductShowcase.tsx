@@ -1,25 +1,47 @@
-import { Activity, Heart, Brain, Zap, Phone, Pill } from "lucide-react";
+import { motion } from "framer-motion";
+import { Heart, Brain, Zap, Phone } from "lucide-react";
+import oxyoneHardware from "@/assets/oxyone-hardware.png";
 
 const ProductShowcase = () => {
   return (
-    <section className="py-20 px-6">
+    <section id="product" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold tracking-tight">OxyOne</h2>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center space-y-4 mb-16"
+        >
+          <h2 className="text-5xl md:text-6xl font-heading font-bold tracking-tight">OxyOne</h2>
           <p className="text-xl text-muted-foreground">
             Your Compact Futuristic Medical Assistant
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-          <div className="aspect-square bg-card rounded-2xl flex items-center justify-center border border-border">
-            <div className="w-48 h-48 rounded-full bg-primary/5 flex items-center justify-center">
-              <Activity className="w-24 h-24 text-primary" />
-            </div>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="aspect-square bg-card rounded-2xl flex items-center justify-center border border-border p-8 overflow-hidden"
+          >
+            <img 
+              src={oxyoneHardware} 
+              alt="OxyOne Hardware Device" 
+              className="w-full h-full object-contain"
+            />
+          </motion.div>
 
-          <div className="space-y-6">
-            <h3 className="text-3xl font-bold">Intelligent Health Companion</h3>
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            <h3 className="text-3xl font-heading font-bold">Intelligent Health Companion</h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
               OxyOne is a state-of-the-art medical assistant designed to provide instant access 
               to health information, fitness guidance, mental wellness support, emergency assistance, 
@@ -56,7 +78,7 @@ const ProductShowcase = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
